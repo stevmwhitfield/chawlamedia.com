@@ -29,6 +29,10 @@ const config: Config = {
           900: 'rgb(50 52 57 / <alpha-value>)',
         },
       },
+      height: {
+        'main': 'calc(100vh - 64px)',
+        'main-xl': 'calc(100vh - 96px)',
+      },
     },
   },
   plugins: [],

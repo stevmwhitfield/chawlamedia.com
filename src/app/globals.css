@@ -23,13 +23,13 @@ body {
 }
 
 body {
-  background:;
-  color:;
+  background: rgb(var(--primary-100));
+  color: rgb(var(--primary-900));
   font-size: 1.25rem;
   line-height: 1.5;
 }
 
 a:hover {
   text-decoration: underline;
-  text-underline-offset: 6px;
+  text-underline-offset: 8px;
 }
