@@ -1,7 +1,7 @@
 import GalleryCard from '@/components/GalleryCard';
 import { Photoshoot } from '@/types';
 
-import { revalidateTag } from 'next/cache';
+import { revalidatePath } from 'next/cache';
 import { Racing_Sans_One } from 'next/font/google';
 
 import { client } from '../../../sanity/lib/client';
@@ -12,19 +12,22 @@ const racingSansOne = Racing_Sans_One({
   weight: '400',
 });
 
-const query = `*[_type == "photoshoot"] { _id, "slug": slug.current, title, type, photos }`;
+const getData = async () => {
+  'use server';
+  const query = `*[_type == "photoshoot"] { _id, "slug": slug.current, title, type, photos }`;
+  const data = await client.fetch<Photoshoot[]>(query);
+  revalidatePath('/gallery');
+  return data;
+};
 
 const Gallery = async () => {
-  const photoshoots = await client.fetch<Photoshoot[]>(query, {}, { next: { tags: ['gallery'] } });
-  revalidateTag('gallery');
+  const photoshoots = await getData();
 
   return (
     <div>
       <h1 className={`${racingSansOne.className} text-6xl font-bold text-center pt-6 pb-12`}>
         Gallery
       </h1>
-      {/*  */}
-      {/* 'grid grid-cols-1 row sm:grid-cols-2 lg:grid-cols-3' */}
       <div className='w-full columns-1 sm:columns-2 md:columns-3 gap-0'>
         {photoshoots.map((card) => (
           <GalleryCard
