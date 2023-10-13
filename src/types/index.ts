@@ -7,6 +7,7 @@ export interface NavLink {
 
 export interface GalleryCard {
   img: string;
+  href: string;
   title: string;
   description: string;
 }
