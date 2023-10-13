@@ -1,4 +1,4 @@
-import { Card } from '@/types';
+import { GalleryCard } from '@/types';
 
 import { Racing_Sans_One } from 'next/font/google';
 import Image from 'next/image';
@@ -8,7 +8,7 @@ const racingSansOne = Racing_Sans_One({
   weight: '400',
 });
 
-const Card = ({ img, title, description }: Card) => {
+const GalleryCard = ({ img, title, description }: GalleryCard) => {
   return (
     <div className='relative w-full aspect-[3/2] group'>
       <Image src={img} alt={title} className='object-cover group-hover:grayscale' fill />
@@ -22,4 +22,4 @@ const Card = ({ img, title, description }: Card) => {
   );
 };
 
-export default Card;
+export default GalleryCard;

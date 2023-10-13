@@ -3,7 +3,7 @@ export interface NavLink {
   label: string;
 }
 
-export interface Card {
+export interface GalleryCard {
   img: string;
   title: string;
   description: string;

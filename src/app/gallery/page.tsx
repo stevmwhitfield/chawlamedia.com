@@ -1,4 +1,4 @@
-import Card from '@/components/Card';
+import GalleryCard from '@/components/GalleryCard';
 
 import { Racing_Sans_One } from 'next/font/google';
 
@@ -54,7 +54,12 @@ const Gallery = () => {
       </h1>
       <div className='grid grid-cols-1 row sm:grid-cols-2 lg:grid-cols-3'>
         {temp.map((card) => (
-          <Card key={card.id} img={card.img} title={card.title} description={card.description} />
+          <GalleryCard
+            key={card.id}
+            img={card.img}
+            title={card.title}
+            description={card.description}
+          />
         ))}
       </div>
     </div>
