@@ -1,6 +1,7 @@
 import GalleryCard from '@/components/GalleryCard';
 import { Photoshoot } from '@/types';
 
+import { revalidateTag } from 'next/cache';
 import { Racing_Sans_One } from 'next/font/google';
 
 import { client } from '../../../sanity/lib/client';
@@ -14,7 +15,8 @@ const racingSansOne = Racing_Sans_One({
 const query = `*[_type == "photoshoot"] { _id, "slug": slug.current, title, type, photos }`;
 
 const Gallery = async () => {
-  const photoshoots = await client.fetch<Photoshoot[]>(query);
+  const photoshoots = await client.fetch<Photoshoot[]>(query, {}, { next: { tags: ['gallery'] } });
+  revalidateTag('gallery');
 
   return (
     <div>

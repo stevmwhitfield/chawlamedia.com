@@ -1,5 +1,6 @@
 import { Photoshoot } from '@/types';
 
+import { revalidateTag } from 'next/cache';
 import { Racing_Sans_One } from 'next/font/google';
 import Image from 'next/image';
 
@@ -21,8 +22,11 @@ export const generateStaticParams = async () => {
 const Photoshoot = async ({ params }: { params: { slug: string } }) => {
   const photoshoot = await client.fetch<Photoshoot>(
     `*[_type == "photoshoot" && slug.current == "${params.slug}"] { _id, "slug": slug.current, title, type, "photos": photos[] {...,
-    "aspectRatio": asset->metadata.dimensions.aspectRatio} }[0]`
+    "aspectRatio": asset->metadata.dimensions.aspectRatio} }[0]`,
+    {},
+    { next: { tags: ['photoshoot'] } }
   );
+  revalidateTag('photoshoot');
 
   return (
     <div>

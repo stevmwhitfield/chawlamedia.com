@@ -1,6 +1,7 @@
 import PricingCard from '@/components/PricingCard';
 import { Price } from '@/types';
 
+import { revalidateTag } from 'next/cache';
 import { Racing_Sans_One } from 'next/font/google';
 
 import { client } from '../../../sanity/lib/client';
@@ -13,7 +14,8 @@ const racingSansOne = Racing_Sans_One({
 const query = `*[_type == "pricing"] { _id, title, price, description }`;
 
 const Pricing = async () => {
-  const prices = await client.fetch<Price[]>(query);
+  const prices = await client.fetch<Price[]>(query, {}, { next: { tags: ['pricing'] } });
+  revalidateTag('pricing');
 
   return (
     <div className='px-6'>
