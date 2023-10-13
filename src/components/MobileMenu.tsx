@@ -1,12 +1,14 @@
 'use client';
 
+import { NavLink } from '@/types';
+
 import Bars3Icon from '@heroicons/react/24/outline/Bars3Icon';
 import XMarkIcon from '@heroicons/react/24/outline/XMarkIcon';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
-const MobileMenu = () => {
+const MobileMenu = ({ links }: { links: NavLink[] }) => {
   const [open, setOpen] = useState(false);
 
   const toggleMenu = () => setOpen(!open);
@@ -28,31 +30,17 @@ const MobileMenu = () => {
       <div className={open ? 'absolute top-16 left-0 w-full h-main z-50 bg-primary-100' : 'hidden'}>
         <nav className='h-full flex items-center justify-center'>
           <ul className='capitalize text-lg flex flex-col justify-between w-full h-full max-h-96 -mt-16'>
-            <li>
-              <Link href={'/'} className='flex justify-center w-full py-4'>
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href={'/'} className='flex justify-center w-full py-4'>
-                Gallery
-              </Link>
-            </li>
-            <li>
-              <Link href={'/'} className='flex justify-center w-full py-4'>
-                Pricing
-              </Link>
-            </li>
-            <li>
-              <Link href={'/'} className='flex justify-center w-full py-4'>
-                About
-              </Link>
-            </li>
-            <li>
-              <Link href={'/'} className='flex justify-center w-full py-4'>
-                Shop
-              </Link>
-            </li>
+            {links.map((link, i) => (
+              <li key={i}>
+                <Link
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className='flex justify-center w-full py-4'
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>
