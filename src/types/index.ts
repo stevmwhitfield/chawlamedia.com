@@ -14,3 +14,10 @@ export interface PricingCard {
   price: string;
   description: string;
 }
+
+export interface Price {
+  _id: string;
+  title: string;
+  price: string;
+  description: string;
+}
