@@ -29,7 +29,7 @@ const MobileMenu = ({ links }: { links: NavLink[] }) => {
       {/* MENU LINKS */}
       <div className={open ? 'absolute top-16 left-0 w-full h-main z-50 bg-primary-100' : 'hidden'}>
         <nav className='h-full flex items-center justify-center'>
-          <ul className='capitalize text-lg flex flex-col justify-between w-full h-full max-h-96 -mt-16'>
+          <ul className='capitalize text-3xl flex flex-col justify-between w-full h-full max-h-96 -mt-16'>
             {links.map((link, i) => (
               <li key={i}>
                 <Link

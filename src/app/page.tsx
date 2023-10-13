@@ -14,7 +14,7 @@ const Home = () => {
     <>
       <div className='absolute top-16 md:top-24 left-0 w-full z-20 h-main md:h-main-xl flex items-center justify-center'>
         <h1
-          className={`text-2xl md:text-3xl font-bold text-center text-primary-100 ${racingSansOne.className}`}
+          className={`text-7xl md:text-8xl font-bold text-center text-primary-100 ${racingSansOne.className}`}
         >
           Chawla Media
         </h1>

@@ -8,3 +8,9 @@ export interface Card {
   title: string;
   description: string;
 }
+
+export interface PricingCard {
+  title: string;
+  price: string;
+  description: string;
+}

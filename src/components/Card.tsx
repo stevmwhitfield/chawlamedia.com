@@ -13,10 +13,10 @@ const Card = ({ img, title, description }: Card) => {
     <div className='relative w-full aspect-[3/2] group'>
       <Image src={img} alt={title} className='object-cover group-hover:grayscale' fill />
       <div className='invisible group-hover:visible absolute inset-0 flex flex-col items-center justify-center gap-2 bg-primary-900 bg-opacity-50'>
-        <h2 className={`capitalize text-xl text-primary-100 font-bold ${racingSansOne.className}`}>
+        <h2 className={`capitalize text-5xl text-primary-100 font-bold ${racingSansOne.className}`}>
           {title}
         </h2>
-        <p className='capitalize text-lg text-primary-200'>{description}</p>
+        <p className='capitalize text-2xl text-primary-200'>{description}</p>
       </div>
     </div>
   );

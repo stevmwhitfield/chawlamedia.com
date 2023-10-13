@@ -14,7 +14,7 @@ const DesktopMenu = ({ links }: { links: NavLink[] }) => {
           <ul className='flex items-center gap-8'>
             {links.map((link, i) => (
               <li key={i}>
-                <Link href={link.href} className='capitalize'>
+                <Link href={link.href} className='capitalize text-xl'>
                   {link.label}
                 </Link>
               </li>

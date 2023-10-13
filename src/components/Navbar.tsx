@@ -7,7 +7,7 @@ const Navbar = () => {
   const links: NavLink[] = [
     { href: '/', label: 'home' },
     { href: '/gallery', label: 'gallery' },
-    { href: '/', label: 'pricing' },
+    { href: '/pricing', label: 'pricing' },
     { href: '/', label: 'about' },
     { href: '/', label: 'shop' },
   ];
