@@ -94,6 +94,9 @@ module.exports = {
         '@typescript-eslint/no-shadow': 'error',
         '@typescript-eslint/prefer-optional-chain': 'error',
         '@typescript-eslint/restrict-template-expressions': 'off',
+        '@typescript-eslint/no-unsafe-member-access': 'off',
+        '@typescript-eslint/no-unsafe-call': 'off',
+        '@typescript-eslint/no-unsafe-return': 'off',
       },
     },
     {

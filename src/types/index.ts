@@ -1,3 +1,5 @@
+import { Image } from 'sanity';
+
 export interface NavLink {
   href: string;
   label: string;
@@ -20,4 +22,16 @@ export interface Price {
   title: string;
   price: string;
   description: string;
+}
+
+export interface Photo extends Image {
+  aspectRatio: number;
+}
+
+export interface Photoshoot {
+  _id: string;
+  slug: string;
+  title: string;
+  type: string;
+  photos: Photo[];
 }
