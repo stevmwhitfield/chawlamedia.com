@@ -9,7 +9,7 @@ const Navbar = () => {
     { href: '/gallery', label: 'gallery' },
     { href: '/pricing', label: 'pricing' },
     { href: '/about', label: 'about' },
-    // { href: '/', label: 'shop' },
+    { href: 'https://chawlamedia.myshopify.com/', label: 'shop' },
   ];
 
   return (
